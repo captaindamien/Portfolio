@@ -9,13 +9,53 @@ header {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 }
-.person {
 
+.person {
+    width: 200px;
+    color: white;
+    height: 128px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.reg {
+    line-height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.reg a {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    color: white;
+    padding: 3px 7px;
+    box-sizing: border-box;
 }
 
 header img {
     width: 128px;
+}
+
+.person img {
+    margin: 0 auto;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 0;
+    padding: 0;
+}
+
+.person h5 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .login {
@@ -47,5 +87,14 @@ form a {
 @media (max-width: 600px) {
     header {
         text-align: center;
+    }
+    .person {
+        width: 128px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    .reg {
+        flex-direction: column;
     }
 }
