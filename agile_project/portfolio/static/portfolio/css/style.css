@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #253247;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+header img {
+    width: 128px;
+}
+
+.login {
+    margin: 0 auto;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 148px);
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form a {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.btn {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    header {
+        text-align: center;
+    }
+}
