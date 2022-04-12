@@ -1,0 +1,17 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block title %}login{% endblock title %}
+{%  block content%}
+<div class="login">
+    <form>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="exampleInputText" placeholder="Login">
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+        <a href="{% url 'portfolio:registration' %}">Регистрация</a>
+    </form>
+</div>
+{% endblock content %}
