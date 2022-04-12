@@ -58,6 +58,49 @@ header img {
     padding: 0;
 }
 
+.content {
+    margin: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h2 {
+    margin-bottom: 30px;
+}
+
+.item {
+    color: #253247;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 13px 7px;
+    box-sizing: border-box;
+}
+
+.item:nth-child(odd) {
+    background-color: #d75946;
+}
+
+.item:nth-child(even) {
+    background-color: #ecd140;
+}
+
+.item img {
+    height: 100px;
+    width: 220px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.item p {
+    width: 60%;
+    text-align: justify;
+}
+
 .login {
     margin: 0 auto;
     padding: 10px 30px;
@@ -96,5 +139,18 @@ form a {
     }
     .reg {
         flex-direction: column;
+    }
+    .item {
+        flex-direction: column;
+        align-items: center;
+    }
+    .item img {
+        width: 90%;
+    }
+    .item p {
+        width: 100%;
+    }
+    .content h2 {
+        text-align: center;
     }
 }

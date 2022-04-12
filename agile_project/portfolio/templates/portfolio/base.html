@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img src="../media/logo.png" class="logo" alt="logo">
+        <a href="{% url 'portfolio:index' %}"><img src="../media/logo.png" class="logo" alt="logo"></a>
         {% comment %} Если пользователь авторизован {% endcomment %}
         {% comment %} <div class="person">
             <img src="../media/person_logo.png" alt="person logo"/>
