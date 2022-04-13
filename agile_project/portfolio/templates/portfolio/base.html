@@ -11,10 +11,10 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'portfolio:index' %}"><img src="../media/logo.png" class="logo" alt="logo"></a>
+        <a href="{% url 'portfolio:index' %}"><img src="{{ logo }}" class="logo" alt="logo"></a>
         {% if user.is_authenticated %}
             <div class="person">
-                <img src="../media/person_logo.png" alt="person logo"/>
+                <img src="../media/{{ avatar }}" alt="person logo"/>
                 <h5>{{ user.username }}</h5>
                 <a href="{% url 'logout' %}">Выход</a>
             </div>
