@@ -11,17 +11,19 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'portfolio:index' %}"><img src="../media/logo.png" class="logo" alt="logo"></a>
-        {% comment %} Если пользователь авторизован {% endcomment %}
-<!--        <div class="person">-->
-<!--            <img src="../media/person_logo.png" alt="person logo"/>-->
-<!--            <h5>{{NickName|default:"NickName"}}</h5> -->
-<!--        </div>-->
-        {% comment %} Если пользователь не авторизован {% endcomment %}
-        <div class="reg">
-            <a href="{% url 'portfolio:login' %}">Авторизация</a>
-            <a href="{% url 'portfolio:registration' %}">Регистрация</a>
-        </div>
+        <a href="{% url 'portfolio:index' %}"><img src="{{ logo }}" class="logo" alt="logo"></a>
+        {% if user.is_authenticated %}
+            <div class="person">
+                <img src="../media/{{ avatar }}" alt="person logo"/>
+                <h5>{{ user.username }}</h5>
+                <a href="{% url 'logout' %}">Выход</a>
+            </div>
+        {% else %}
+            <div class="reg">
+                <a href="{% url 'login' %}">Авторизация</a>
+                <a href="#">Регистрация</a>
+            </div>
+        {% endif %}
     </header>
 {% block content %}
 <h1>base template</h1>

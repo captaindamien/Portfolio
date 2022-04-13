@@ -1,12 +1,10 @@
-from django.urls import path
-from .views import index, registration, login, profile
+from django.urls import path, include
+from .views import index, profile
 
 app_name = 'portfolio'
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', index, name="index"),
-    path('login', login, name="login"),
-    path('registration', registration, name="registration"),
     path('profile/<int:pk>', profile, name="profile"),
 ]
