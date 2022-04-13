@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, registration, login
+from .views import index, registration, login, profile
 
 app_name = 'portfolio'
 # Wire up our API using automatic URL routing.
@@ -8,4 +8,5 @@ urlpatterns = [
     path('', index, name="index"),
     path('login', login, name="login"),
     path('registration', registration, name="registration"),
+    path('profile/<int:pk>', profile, name="profile"),
 ]
