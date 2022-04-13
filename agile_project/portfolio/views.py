@@ -10,3 +10,6 @@ def login(request):
 
 def registration(request):
     return render(request, 'portfolio/registration.html')
+
+def profile(request, pk):
+    return render(request, 'portfolio/profile.html')

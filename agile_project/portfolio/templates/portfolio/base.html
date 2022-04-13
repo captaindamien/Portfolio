@@ -13,9 +13,10 @@
     <header>
         <a href="{% url 'portfolio:index' %}"><img src="../media/logo.png" class="logo" alt="logo"></a>
         {% comment %} Если пользователь авторизован {% endcomment %}
-        {% comment %} <div class="person">
-            <img src="../media/person_logo.png" alt="person logo"/>
-            <h5>{{NickName|default:"NickName"}}</h5> {% endcomment %}
+<!--        <div class="person">-->
+<!--            <img src="../media/person_logo.png" alt="person logo"/>-->
+<!--            <h5>{{NickName|default:"NickName"}}</h5> -->
+<!--        </div>-->
         {% comment %} Если пользователь не авторизован {% endcomment %}
         <div class="reg">
             <a href="{% url 'portfolio:login' %}">Авторизация</a>
@@ -25,5 +26,6 @@
 {% block content %}
 <h1>base template</h1>
 {% endblock content %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
