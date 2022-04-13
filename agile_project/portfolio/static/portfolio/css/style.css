@@ -58,6 +58,9 @@ header img {
     padding: 0;
 }
 
+.person a {
+    color:white;
+}
 .content {
     margin: 30px 20px;
     display: flex;
@@ -134,23 +137,15 @@ select {
     height: calc(100vh - 148px);
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 form {
-    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-form a {
-    text-align: center;
-    font-size: 0.8em;
-}
-
-.btn {
-    width: 100%;
-}
 
 @media (max-width: 600px) {
     header {
