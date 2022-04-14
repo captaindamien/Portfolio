@@ -14,14 +14,14 @@
         <a href="{% url 'portfolio:index' %}"><img src="{{ logo }}" class="logo" alt="logo"></a>
         {% if user.is_authenticated %}
             <div class="person">
-                <img src="../media/{{ avatar }}" alt="person logo"/>
+                <img src="{{ avatar }}" alt="person logo"/>
                 <h5>{{ user.username }}</h5>
                 <a href="{% url 'logout' %}">Выход</a>
             </div>
         {% else %}
             <div class="reg">
                 <a href="{% url 'login' %}">Авторизация</a>
-                <a href="#">Регистрация</a>
+                <a href="{% url 'portfolio:registration' %}">Регистрация</a>
             </div>
         {% endif %}
     </header>

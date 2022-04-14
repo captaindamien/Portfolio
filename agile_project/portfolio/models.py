@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 def user_directory_path(instance, filename):
-    return 'user_{0}/{1}'.format(instance.full_name.id, filename)
+    return 'user_avatars/user_{0}/{1}'.format(instance.full_name.id, filename)
 
 
 class Portfolio(models.Model):
@@ -26,18 +26,22 @@ class Portfolio(models.Model):
         verbose_name='Информация о себе',
         blank=True,
     )
-    telegram = models.CharField(
+    project_links = models.TextField(
         verbose_name='Ссылки на проекты',
+        blank=True,
+    )
+    telegram = models.CharField(
+        verbose_name='Ссылка на telegram',
         max_length=100,
         blank=True,
     )
     whatsapp = models.CharField(
-        verbose_name='Ссылки на проекты',
+        verbose_name='Ссылкa на whatsapp',
         max_length=100,
         blank=True,
     )
     phone_number = models.CharField(
-        verbose_name='Ссылки на проекты',
+        verbose_name='Номер телефона',
         max_length=100,
         blank=True,
     )
