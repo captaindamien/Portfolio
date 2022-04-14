@@ -1,28 +1,29 @@
 {% extends "portfolio/base.html" %}
-
+{% load short %}
 {% block title %}Регистрация{% endblock %}
 
 {% block content %}
-     <div>
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
 
-        <h1>Создание аккаунта</h1>
-
-         <form method="post" >
-             {% csrf_token %}
-             <table>
-                {{ form }}
-                 <tr>
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Зарегистрироваться"/></td>
-                </tr>
-             </table>
-         </form>
-     </div>
+<div class="login">
+    <form method="post">
+        <h1>РЕГИСТРАЦИЯ</h1>
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+        <div class="mb-3">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+        </div>
+        <div class="mb-3">
+            {{ form.password2.label_tag|shorter }}
+            {{ form.password2 }}
+        </div>
+        <input type="submit" name="submit" value="Зарегистрироваться" class="btn btn-warning"/></td>
+        <div class="small_text_under_btn">
+            <a href="{% url 'login' %}">Вход</a>
+        </div>
+    </form>
+</div>
 {% endblock %}

@@ -66,6 +66,7 @@ def edit(request, username):
 
 def registration(request):
     context = {}
+    context['logo'] = os.path.join(MEDIA_URL, "logo.png")
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)

@@ -1,10 +1,12 @@
 {% extends 'portfolio/base.html' %}
 
 {% block title %}
-  Выход
+Выход
 {% endblock %}
 
 {% block content %}
+<div class="login">
     <p class="log_text">Вы вышли из учетной записи</p>
-    <a href="{% url 'login'%}" class="log_text" >Нажмите сюда, чтобы войти снова</a>
+    <a href="{% url 'login'%}" class="log_text">Нажмите сюда, чтобы войти снова</a>
+</div>
 {% endblock %}
