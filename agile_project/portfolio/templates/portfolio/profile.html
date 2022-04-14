@@ -1,68 +1,13 @@
 {% extends 'portfolio/base.html' %}
-{% load static %}
 {% block title %}profile{% endblock title %}
+
 {%  block content%}
-<div class="content">
-    <label for="fio" class="form-label">ФИО</label>
-    <input type="text" id="fio" placeholder="Иванов Иван Иванович">
-    <label for="browsers" class="form-label">НАПРАВЛЕНИЕ</label>
-    <input type="text" list="browsers" placeholder="Разработчик">
-    <datalist id="browsers">
-        <option>Разработчик</option>
-        <option>Дизайнер</option>
-        <option>Тестировщик</option>
-    </datalist>
-
-    <label for="links" class="form-label">ССЫЛКИ НА ПРОЕКТ</label>
-    <input id="links" type="text" list="browsers" placeholder="https://project_one.ru, https://project_two.ru...">
-
-    <label for="telegram" class="form-label">ТЕЛЕГРАМ</label>
-    <input id="telegram" type="text" placeholder="@nick">
-    <label for="phone" class="form-label">ТЕЛЕФОН</label>
-    <input id="phone" type="text" placeholder="11 цифр">
-    <label for="email" class="form-label">ПОЧТА</label>
-    <input id="email" type="email" placeholder="nickname@mail.ru">
-
-    <label for="about" class="form-label">О СЕБЕ</label>
-    <textarea id="about" placeholder="текст..."></textarea>
-
-    <label for="fileupload" class="form-label">АВАТАР</label>
-    <input id="fileupload" class="form-control" name="myfile" type="file"/>
-
-    <label for="experience" class="form-label">ОПЫТ РАБОТЫ</label>
-    <select id="experience">
-        <option value="none" selected disabled hidden>............</option>
-        <option>До 1 года</option>
-        <option>От 1 года до 3 лет</option>
-        <option>От 3 до 6 лет</option>
-        <option>Более 6 лет</option>
-    </select>
-    <label for="skills" class="form-label">НАВЫКИ</label>
-    <input id="skills" type="text" placeholder="начитанный, целеустремленный...">
-    <button id="templates" data-bs-toggle="modal" data-bs-target="#exampleModal">выбор шаблона</button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Выбор шаблона</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="wrapper_modal">
-                        <img src="../../../media/example.png" class="templ">
-                        <button class="save">ВЫБРАТЬ</button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <p>&copy;&nbsp;Портфолио&nbsp;2022</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button class="save" id="save">СОХРАНИТЬ</button>
-
-</div>
-{% endblock content %}
+    {{ user_info.username }}
+    {{ user_info.career }}
+    {{ user_info.about_me }}
+    {% if user_info.photo %}
+        <img src="{{ user_info.photo.url }}" alt="">
+    {% endif %}
+    <a href="{% url 'portfolio:edit' user.username %}">Редактировать</a>
+    <a href="">Ссылка на ваше портфолио</a>
+{% endblock %}
