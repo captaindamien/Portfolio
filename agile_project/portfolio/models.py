@@ -8,7 +8,7 @@ def user_directory_path(instance, filename):
 
 
 class Portfolio(models.Model):
-    full_name = models.ForeignKey(
+    username = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
     )
@@ -53,4 +53,8 @@ class Portfolio(models.Model):
     skills = models.TextField(
         verbose_name='Навыки',
         blank=True,
+    )
+    template = models.PositiveSmallIntegerField(
+        verbose_name='Выбор шаблона',
+        default=1,
     )

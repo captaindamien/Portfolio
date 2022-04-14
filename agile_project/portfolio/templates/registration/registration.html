@@ -3,6 +3,7 @@
 {% block title %}Регистрация{% endblock %}
 
 {% block content %}
+
 <div class="login">
     <form method="post">
         <h1>РЕГИСТРАЦИЯ</h1>
@@ -16,7 +17,6 @@
             {{ form.password1 }}
         </div>
         <div class="mb-3">
-
             {{ form.password2.label_tag|shorter }}
             {{ form.password2 }}
         </div>
