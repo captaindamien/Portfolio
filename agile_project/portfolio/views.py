@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.shortcuts import get_list_or_404, get_object_or_404
 
 import os
 
@@ -11,17 +12,20 @@ from .models import Portfolio
 from agile_project.settings import MEDIA_URL
 from agile_project.forms import PortfolioForm
 
+def get_person_logo(request):
+    user = request.user
+    if request.user.is_authenticated and not request.user.is_staff:
+        user_avatar = get_object_or_404(Portfolio, username=user)
+        if user_avatar.photo:
+            return os.path.join(MEDIA_URL, f'{user_avatar.photo}')
+        else:
+            return os.path.join(MEDIA_URL, 'default_person_logo.png')
+    if request.user.is_staff:
+        return os.path.join(MEDIA_URL, 'admin_logo.jpg')
 
 def index(request):
     context = {}
-    user = request.user
-
-    try:
-        user_avatar = Portfolio.objects.get(username=user)
-        context['avatar'] = os.path.join(MEDIA_URL, f'{user_avatar.photo}')
-    except Exception as e:
-        context['avatar'] = os.path.join(MEDIA_URL, "person_logo.png")
-
+    context['avatar'] = get_person_logo(request)
     context['logo'] = os.path.join(MEDIA_URL, "logo.png")
 
     return render(request, 'portfolio/index.html', context=context)
@@ -31,7 +35,7 @@ def index(request):
 def profile(request, username):
     context = {}
     user = request.user
-
+    context['avatar'] = get_person_logo(request)
     # если находит портфолио для юзера
     try:
         user_info = Portfolio.objects.get(username=user)
@@ -46,6 +50,7 @@ def profile(request, username):
 @login_required()
 def edit(request, username):
     context = {}
+    context['avatar'] = get_person_logo(request)
     user = request.user
     portfolio = Portfolio.objects.get(username=user)
 

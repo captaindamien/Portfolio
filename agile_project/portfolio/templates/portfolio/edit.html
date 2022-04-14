@@ -2,9 +2,79 @@
 {% block title %}profile{% endblock title %}
 
 {% block content %}
-    <form method="post">
+<div class="login">
+    <form method="post" class="form_edit_profile">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Сохранить портфолио</button>
+        <div class="mb-3">
+            {{ form.career.label_tag }}
+            {{ form.career }}
+        </div>
+        <div class="mb-3">
+            {{ form.career.label_tag }}
+            {{ form.career }}
+        </div>
+        <div class="mb-3">
+            {{ form.photo.label_tag }}
+            {{ form.photo }}
+        </div>
+        <div class="mb-3">
+            {{ form.about_me.label_tag }}
+            {{ form.about_me }}
+        </div>
+        <div class="mb-3">
+            {{ form.project_links.label_tag }}
+            {{ form.project_links }}
+        </div>
+        <div class="mb-3">
+            {{ form.telegram.label_tag }}
+            {{ form.telegram }}
+        </div>
+        <div class="mb-3">
+            {{ form.whatsapp.label_tag }}
+            {{ form.whatsapp }}
+        </div>
+        <div class="mb-3">
+            {{ form.phone_number.label_tag }}
+            {{ form.phone_number }}
+        </div>
+        <div class="mb-3">
+            {{ form.experience.label_tag }}
+            {{ form.experience }}
+        </div>
+        <div class="mb-3">
+            {{ form.skills.label_tag }}
+            {{ form.skills }}
+        </div>
+        <div class="mb-3">
+            {{ form.template.label_tag }}
+            {{ form.template }}
+        </div>
+        <button type="button" id="templates" data-bs-toggle="modal" data-bs-target="#exampleModal">ВЫБОР ШАБЛОНА</button>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Выбор шаблона</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="wrapper_modal">
+                            <img src="../../../media/example.png" class="templ">
+                            <button class="save">ВЫБРАТЬ</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p>&copy;&nbsp;Портфолио&nbsp;2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="save" id="save" type="submit">СОХРАНИТЬ</button>
     </form>
+</div>
+
 {% endblock %}

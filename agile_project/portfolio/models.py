@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 def user_directory_path(instance, filename):
-    return 'user_avatars/user_{0}/{1}'.format(instance.full_name.id, filename)
+    return 'user_avatars/user_{0}/{1}'.format(instance.username.id, filename)
 
 
 class Portfolio(models.Model):
@@ -53,8 +53,12 @@ class Portfolio(models.Model):
     skills = models.TextField(
         verbose_name='Навыки',
         blank=True,
+        max_length=200,
     )
     template = models.PositiveSmallIntegerField(
         verbose_name='Выбор шаблона',
         default=1,
     )
+
+    def __str__(self):
+        return str(self.username)
