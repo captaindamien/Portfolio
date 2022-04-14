@@ -1,6 +1,6 @@
 {% extends 'portfolio/base.html' %}
 {% load static %}
-{% block title %}login{% endblock title %}
+{% block title %}Логин{% endblock title %}
 
 {% block content %}
 
@@ -18,6 +18,7 @@
 {% endif %}
 <div class="login">
     <form method="post" action="{% url 'login' %}">
+        <h1>ВХОД</h1>
         {% csrf_token %}
 
         <div class="mb-3">
@@ -31,8 +32,10 @@
         <input type="submit" value="login" class="btn btn-warning"/>
         <input type="hidden" name="next" value="{{ next }}"/>
         {# Assumes you setup the password_reset view in your URLconf #}
-        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-        <p>Нет учетной записи? <a href="{% url 'portfolio:registration' %}">Зарегистрируйтесь</a></p>
+        <div class="small_text_under_btn">
+            <a href="{% url 'password_reset' %}">Не помню пароль</a><a href="{% url 'portfolio:registration' %}">Зарегистрируйтесь</a>
+        </div>
+
     </form>
 </div>
 

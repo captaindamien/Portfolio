@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: "Roboto Light", sans-serif;
 }
 
 header {
@@ -11,6 +12,9 @@ header {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+}
+.logo {
+    background: url("../../media/logo.png");
 }
 
 .person {
@@ -50,6 +54,16 @@ header img {
     border: 1px solid white;
     margin: 0;
     padding: 0;
+}
+
+.header_username, .exit {
+    text-decoration: none;
+}
+.header_username:hover {
+    color: #ecd140;
+}
+.exit:hover {
+    color: #d75946;
 }
 
 .person h5 {
@@ -134,7 +148,7 @@ select {
     padding: 10px 30px;
     box-sizing: border-box;
     width: 100%;
-    height: calc(100vh - 148px);
+    height: calc(100vh - 200px);
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -183,4 +197,13 @@ form {
     height: 50vh;
     width: max-content;
     margin: 0 auto;
+}
+.small_text_under_btn {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    align-self: center;
+}
+.small_text_under_btn a {
+    padding: 3px 5px;
 }
