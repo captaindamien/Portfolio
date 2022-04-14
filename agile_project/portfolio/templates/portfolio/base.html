@@ -12,12 +12,12 @@
 <body>
     <header>
         <h1 class="logo">
-            <a href=""><span>Stack Overflow</span></a>
+            <a href="{% url 'portfolio:index' %}"><span>Stack Overflow</span></a>
         </h1>
         {% if user.is_authenticated %}
             <div class="person">
                 <img src="{{ avatar }}" alt="person logo"/>
-                <a class="header_username" href="{% url 'portfolio:profile_user' user.username%}"><h5>{{ user.username }}</h5></a>
+                <a class="header_username" href="{% url 'portfolio:profile' user.username%}"><h5>{{ user.username }}</h5></a>
                 <a class="exit" href="{% url 'logout' %}">Выход</a>
             </div>
         {% else %}
