@@ -11,12 +11,14 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'portfolio:index' %}"><img src="{{ logo }}" class="logo" alt="logo"></a>
+        <h1 class="logo">
+            <a href=""><span>Stack Overflow</span></a>
+        </h1>
         {% if user.is_authenticated %}
             <div class="person">
                 <img src="{{ avatar }}" alt="person logo"/>
-                <h5>{{ user.username }}</h5>
-                <a href="{% url 'logout' %}">Выход</a>
+                <a class="header_username" href="{% url 'portfolio:profile_user' user.username%}"><h5>{{ user.username }}</h5></a>
+                <a class="exit" href="{% url 'logout' %}">Выход</a>
             </div>
         {% else %}
             <div class="reg">

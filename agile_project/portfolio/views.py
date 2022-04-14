@@ -24,12 +24,30 @@ def index(request):
 
 
 @login_required
-def profile(request, pk):
-    return render(request, 'portfolio/profile.html')
+def profile_user(request, username):
+    context = {}
+    try:
+        user_avatar = Portfolio.objects.get(full_name=usr)
+        context['avatar'] = os.path.join(MEDIA_URL, f'{user_avatar.photo}')
+    except:
+        context['avatar'] = os.path.join(MEDIA_URL, "person_logo.png")
+    context['logo'] = os.path.join(MEDIA_URL, "logo.png")
+    return render(request, 'portfolio/profile.html', context=context)
 
+@login_required
+def profile_user_edit(request, username):
+    context = {}
+    try:
+        user_avatar = Portfolio.objects.get(full_name=usr)
+        context['avatar'] = os.path.join(MEDIA_URL, f'{user_avatar.photo}')
+    except:
+        context['avatar'] = os.path.join(MEDIA_URL, "person_logo.png")
+    context['logo'] = os.path.join(MEDIA_URL, "logo.png")
+    return render(request, 'portfolio/profile_edit.html', context=context)
 
 def registration(request):
     context = {}
+    context['logo'] = os.path.join(MEDIA_URL, "logo.png")
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
