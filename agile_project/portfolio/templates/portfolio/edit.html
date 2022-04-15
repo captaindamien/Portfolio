@@ -1,56 +1,45 @@
 {% extends 'portfolio/base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}profile{% endblock title %}
 
 {% block content %}
 <div class="login">
-    <form method="post" class="form_edit_profile">
+    <form action="" method="POST" enctype="multipart/form-data" class="form_edit_profile">
         {% csrf_token %}
-        <div class="mb-3">
-            {{ form.career.label_tag }}
-            {{ form.career }}
+        {{ form|crispy }}
+        {{ form.media }}
+        <!-- <div class="mb-3">
+            {{ form.career|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.career.label_tag }}
-            {{ form.career }}
+            {{ form.photo|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.photo.label_tag }}
-            {{ form.photo }}
+            {{ form.about_me|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.about_me.label_tag }}
-            {{ form.about_me }}
+            {{ form.project_links|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.project_links.label_tag }}
-            {{ form.project_links }}
+            {{ form.telegram|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.telegram.label_tag }}
-            {{ form.telegram }}
+            {{ form.whatsapp|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.whatsapp.label_tag }}
-            {{ form.whatsapp }}
+            {{ form.phone_number|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.phone_number.label_tag }}
-            {{ form.phone_number }}
+            {{ form.experience|as_crispy_field }}
         </div>
         <div class="mb-3">
-            {{ form.experience.label_tag }}
-            {{ form.experience }}
-        </div>
-        <div class="mb-3">
-            {{ form.skills.label_tag }}
-            {{ form.skills }}
-        </div>
-        <div class="mb-3">
-            {{ form.template.label_tag }}
-            {{ form.template }}
-        </div>
-        <button type="button" id="templates" data-bs-toggle="modal" data-bs-target="#exampleModal">ВЫБОР ШАБЛОНА</button>
+            {{ form.skills|as_crispy_field }}
+        </div> -->
+        <!-- <div class="mb-3">
+            {{ form.template|as_crispy_field }}
+        </div> -->
 
+        <button type="button" id="templates" data-bs-toggle="modal" data-bs-target="#exampleModal">ВЫБОР ШАБЛОНА</button>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

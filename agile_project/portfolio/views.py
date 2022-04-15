@@ -36,6 +36,7 @@ def profile(request, username):
     context = {}
     user = request.user
     context['avatar'] = get_person_logo(request)
+    
     # если находит портфолио для юзера
     try:
         user_info = Portfolio.objects.get(username=user)
@@ -56,12 +57,15 @@ def edit(request, username):
 
     if request.method == 'POST':
         # передача данных из формы в модель
-        form = PortfolioForm(request.POST, instance=portfolio)
+        print('hui')
+        form = PortfolioForm(request.POST, request.FILES, instance=portfolio)
         if form.is_valid():
+            print(1)
             form.save()
-
+            print(2)
             return profile(request, username)
     else:
+        print(3)
         form = PortfolioForm(instance=portfolio)
     
     context['form'] = form
