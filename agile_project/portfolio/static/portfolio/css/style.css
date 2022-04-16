@@ -135,19 +135,33 @@ header img {
     font-size: 0.8em;
 }
 
-#templates,
-.save {
+
+.my_button {
+    display: block;
+    width: 100%;
     margin-top: 15px;
     background-color: #d75946;
     border-radius: 5px;
     color: white;
     border: 0px;
     padding: 6px 0;
+    text-align: center;
+    text-decoration: none;
+}
+.yellow {
+    background-color: #ecd140;
+}
+.light_blue {
+    background-color: #75b6bf;
+}
+.light_green {
+    background-color: #75bf7e;
+}
+.my_button:hover {
+    color: white;
+    opacity: 0.9;
 }
 
-.save {
-    background-color: #72b6c0;
-}
 
 .content input,
 textarea,

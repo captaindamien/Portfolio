@@ -9,7 +9,7 @@
         {{ form|crispy }}
         {{ form.media }}
 
-        <button type="button" id="templates" data-bs-toggle="modal" data-bs-target="#exampleModal">ВЫБОР ШАБЛОНА
+        <button class="my_button light_blue" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">ВЫБОР ШАБЛОНА
         </button>
 
         <!-- Modal -->
@@ -25,14 +25,14 @@
                             <div class="form_radio_group">
                                 <input type="button" id="next" value=">" name="hello" OnClick="a();">
                                 <input type="button" id="before" value="<" name="hello" OnClick="b();">
-                                {% for k in form.template %}
-                                <div class="form_radio_group-item" id="radio_{{ forloop.counter }}">
-                                    <input id="radio-{{ forloop.counter }}" type="radio" name="radio" value="{{ forloop.counter }}">
-                                    <label for="radio-{{ forloop.counter }}"></label>
+                                {% for k in form.template.field.choices %}
+                                <div class="form_radio_group-item" id="radio_{{ k.0 }}">
+                                    <input id="radio-{{ k.0 }}" type="radio" name="template" value="{{ k.0 }}">
+                                    <label for="radio-{{ k.0 }}"></label>
                                 </div>
                                 {% endfor %}
                             </div>
-                            <button class="save" type="button" data-bs-dismiss="modal" aria-label="Close">ВЫБРАТЬ
+                            <button class="my_button yellow" type="button" data-bs-dismiss="modal" aria-label="Close">ВЫБРАТЬ
                             </button>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <button class="save" id="save" type="submit">СОХРАНИТЬ</button>
+        <button class="my_button light_green" type="submit">СОХРАНИТЬ</button>
     </form>
 </div>
 

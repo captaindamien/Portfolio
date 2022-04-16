@@ -6,7 +6,7 @@ from django.utils import timezone
 def user_directory_path(instance, filename):
     return 'user_avatars/user_{0}/{1}'.format(instance.username.id, filename)
 
-CHOICES = [('1','radio-1'),('2','radio-2')]
+CHOICES = [('1','1'),('2','2')]
 
 
 class Portfolio(models.Model):

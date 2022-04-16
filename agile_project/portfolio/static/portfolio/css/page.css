@@ -12,6 +12,7 @@
 
 header {
     background: url("/media/user_page/back.jpeg") no-repeat;
+    background-color: #edd03a;
     background-position: center;
     background-size: cover;
     height: 50vh;

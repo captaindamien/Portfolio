@@ -59,12 +59,10 @@ def edit(request, username):
         # передача данных из формы в модель
         form = PortfolioForm(request.POST, request.FILES, instance=portfolio)
         if form.is_valid():
+
             form.save()
-            t = form.cleaned_data['template']
-            print(f"{t=}")
             return profile(request, username)
     else:
-        print(3)
         form = PortfolioForm(instance=portfolio)
 
     context['form'] = form
@@ -80,7 +78,7 @@ def user_page(request, username):
     context['portfolio'] = user_info
     context['links'] = user_info.project_links.split(',')
     context['skills'] = user_info.skills.split(',')
-    return render(request, 'portfolio/user_page.html', context=context)
+    return render(request, f'portfolio/user_pages/user_page_{user_info.template}.html', context=context)
 
 def registration(request):
     context = {}
