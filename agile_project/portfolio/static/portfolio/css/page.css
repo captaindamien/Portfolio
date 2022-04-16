@@ -1,0 +1,136 @@
+* {
+    margin:0;
+    padding: 0;
+    font-family: "Roboto Light", sans-serif;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+header {
+    background: url("/media/user_page/back.jpeg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.greet {
+    margin:auto;
+}
+header h1 {
+    text-align: center;
+    color: white;
+    font-size: 3.6em;
+}
+header h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.6em;
+}
+.user_logo {
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 140px;
+    position: absolute;
+    bottom:-75px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.about_me {
+    width: 40%;
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+h4 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+
+}
+.about_me h4 {
+    text-align: center;
+}
+nav {
+    width: 30%;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+
+}
+nav ul li {
+    padding: 5px 7px;
+}
+
+footer {
+    margin: 0 auto;
+    width: 70%;
+}
+footer h4 {
+    margin-top: 25px;
+    text-align: center;
+}
+footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+footer li {
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 3px 5px;
+    margin: 7px 0 0;
+}
+
+@media (max-width: 800px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        text-align: justify;
+        margin-top: 80px;
+    }
+    .about_me {
+        margin-top: 0;
+        order: 1;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .my_links {
+        order: 2;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .my_links li {
+        margin:0;
+    }
+    .contacts {
+        order: 3;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .contacts li {
+        margin: 0;
+        padding: 0;
+    }
+    footer {
+        margin-bottom: 20px;
+    }
+    footer h4 {
+        margin-top:0;
+    }
+
+
+}

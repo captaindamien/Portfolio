@@ -72,6 +72,16 @@ def edit(request, username):
     context['portfolio'] = portfolio
     return render(request, 'portfolio/edit.html', context=context)
 
+def user_page(request, username):
+    context = {}
+    user = request.user
+    user_info = Portfolio.objects.get(username=user)
+    context['user'] = user
+    context['avatar'] = get_person_logo(request)
+    context['portfolio'] = user_info
+    context['links'] = user_info.project_links.split(',')
+    context['skills'] = user_info.skills.split(',')
+    return render(request, 'portfolio/user_page.html', context=context)
 
 def registration(request):
     context = {}

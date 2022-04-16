@@ -8,38 +8,9 @@
         {% csrf_token %}
         {{ form|crispy }}
         {{ form.media }}
-        <!-- <div class="mb-3">
-            {{ form.career|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.photo|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.about_me|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.project_links|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.telegram|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.whatsapp|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.phone_number|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.experience|as_crispy_field }}
-        </div>
-        <div class="mb-3">
-            {{ form.skills|as_crispy_field }}
-        </div> -->
-        <!-- <div class="mb-3">
-            {{ form.template|as_crispy_field }}
-        </div> -->
 
-        <button type="button" id="templates" data-bs-toggle="modal" data-bs-target="#exampleModal">ВЫБОР ШАБЛОНА</button>
+        <button type="button" id="templates" data-bs-toggle="modal" data-bs-target="#exampleModal">ВЫБОР ШАБЛОНА
+        </button>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,8 +22,20 @@
                     </div>
                     <div class="modal-body">
                         <div class="wrapper_modal">
-                            <img src="../../../media/example.png" class="templ">
-                            <button class="save">ВЫБРАТЬ</button>
+                            <div class="form_radio_group">
+<!--                                <a href="#" class="next_item">Next</a>-->
+                                <input type="button" id="next" value=">" name="hello" OnClick="a();">
+                                <input type="button" id="before" value="<" name="hello" OnClick="b();">
+                                <div class="form_radio_group-item" id="radio_1">
+                                    <input id="radio-1" type="radio" name="radio" value="1">
+                                    <label for="radio-1"></label>
+                                </div>
+                                <div class="form_radio_group-item" id="radio_2">
+                                    <input id="radio-2" type="radio" name="radio" value="2">
+                                    <label for="radio-2"></label>
+                                </div>
+                            </div>
+                            <button class="save" type="button" data-bs-dismiss="modal" aria-label="Close">ВЫБРАТЬ</button>
                         </div>
                     </div>
                     <div class="modal-footer">
