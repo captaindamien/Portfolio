@@ -2,11 +2,25 @@ from django import forms
 from portfolio.models import Portfolio
 from crispy_forms.helper import FormHelper
 
-
 class PortfolioForm(forms.ModelForm):
     class Meta:
         model = Portfolio
-        fields = '__all__'
+        fields = (
+        'career',
+        'about_me',
+        'phone_number',
+        'whatsapp',
+        'telegram',
+        'about_me',
+        'project_links',
+        'experience',
+        'skills',
+        'photo',
+        'template',
+        )
+        widgets = {
+                    'template': forms.RadioSelect,
+                }
     
     def __init__(self, *args, **kwargs):
         super(PortfolioForm, self).__init__(*args, **kwargs)

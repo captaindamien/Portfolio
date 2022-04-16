@@ -6,6 +6,8 @@ from django.utils import timezone
 def user_directory_path(instance, filename):
     return 'user_avatars/user_{0}/{1}'.format(instance.username.id, filename)
 
+CHOICES = [('1','radio-1'),('2','radio-2')]
+
 
 class Portfolio(models.Model):
     username = models.ForeignKey(
@@ -55,9 +57,12 @@ class Portfolio(models.Model):
         blank=True,
         max_length=200,
     )
-    template = models.PositiveSmallIntegerField(
+    template = models.CharField(
+        blank=False,
+        max_length=1,
         verbose_name='Выбор шаблона',
-        default=1,
+        choices=CHOICES,
+        default=0,
     )
 
     def __str__(self):

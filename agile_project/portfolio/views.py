@@ -57,17 +57,16 @@ def edit(request, username):
 
     if request.method == 'POST':
         # передача данных из формы в модель
-        print('hui')
         form = PortfolioForm(request.POST, request.FILES, instance=portfolio)
         if form.is_valid():
-            print(1)
             form.save()
-            print(2)
+            t = form.cleaned_data['template']
+            print(f"{t=}")
             return profile(request, username)
     else:
         print(3)
         form = PortfolioForm(instance=portfolio)
-    
+
     context['form'] = form
     context['portfolio'] = portfolio
     return render(request, 'portfolio/edit.html', context=context)

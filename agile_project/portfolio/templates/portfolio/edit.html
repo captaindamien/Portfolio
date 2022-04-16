@@ -23,19 +23,17 @@
                     <div class="modal-body">
                         <div class="wrapper_modal">
                             <div class="form_radio_group">
-<!--                                <a href="#" class="next_item">Next</a>-->
                                 <input type="button" id="next" value=">" name="hello" OnClick="a();">
                                 <input type="button" id="before" value="<" name="hello" OnClick="b();">
-                                <div class="form_radio_group-item" id="radio_1">
-                                    <input id="radio-1" type="radio" name="radio" value="1">
-                                    <label for="radio-1"></label>
+                                {% for k in form.template %}
+                                <div class="form_radio_group-item" id="radio_{{ forloop.counter }}">
+                                    <input id="radio-{{ forloop.counter }}" type="radio" name="radio" value="{{ forloop.counter }}">
+                                    <label for="radio-{{ forloop.counter }}"></label>
                                 </div>
-                                <div class="form_radio_group-item" id="radio_2">
-                                    <input id="radio-2" type="radio" name="radio" value="2">
-                                    <label for="radio-2"></label>
-                                </div>
+                                {% endfor %}
                             </div>
-                            <button class="save" type="button" data-bs-dismiss="modal" aria-label="Close">ВЫБРАТЬ</button>
+                            <button class="save" type="button" data-bs-dismiss="modal" aria-label="Close">ВЫБРАТЬ
+                            </button>
                         </div>
                     </div>
                     <div class="modal-footer">
