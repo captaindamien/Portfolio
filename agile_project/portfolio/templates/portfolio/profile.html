@@ -4,35 +4,41 @@
 
 {%  block content%}
 <div class="login">
-    <div class="form_edit_profile">
-        <div class="profile_row">
-            <img class="profile_avatarka" src="{{avatar}}" alt="аватарка">
-            <div class="profile_contacts">
-                <p>Направление:&nbsp;<span>{{ user_info.career }}</span></p>
-                <p>Телефон:&nbsp;<span>{{ user_info.phone_number }}</span></p>
-                <p>Telegram:&nbsp;<span>{{ user_info.telegram }}</span></p>
-                <p>Whatsapp:&nbsp;<span>{{ user_info.whatsapp }}</span></p>
+    <div class="profile_flex">
+        <div class="profile_content">
+            <div class="form_edit_profile">
+                <div class="profile_row">
+                    <img class="profile_avatarka" src="{{avatar}}" alt="аватарка">
+                    <div class="profile_contacts">
+                        <p>Направление:&nbsp;<span>{{ user_info.career }}</span></p>
+                        <p>Телефон:&nbsp;<span>{{ user_info.phone_number }}</span></p>
+                        <p>Telegram:&nbsp;<span>{{ user_info.telegram }}</span></p>
+                        <p>Whatsapp:&nbsp;<span>{{ user_info.whatsapp }}</span></p>
+                    </div>
+                </div>
+                <div class="profile_row">
+                    <p>Опыт работы:&nbsp;<span>{{ user_info.experience }}</span></p>
+                </div>
+                <div class="profile_row">
+                    <p>О&nbsp;себе:&nbsp;<br/><span>{{ user_info.about_me }}</span></p>
+                </div>
+                <div class="profile_row">
+                    <p>Ссылки на проекты:&nbsp;<br/><span>{{ user_info.project_links }}</span></p>
+                </div>
+                <div class="profile_row">
+                    <p>Навыки:&nbsp;<br/><span>{{ user_info.skills }}</span></p>
+                </div>
+
             </div>
         </div>
-        <div class="profile_row">
-            <p>Опыт работы:&nbsp;<span>{{ user_info.experience }}</span></p>
-        </div>
-        <div class="profile_row">
-            <p>О&nbsp;себе:&nbsp;<br/><span>{{ user_info.about_me }}</span></p>
-        </div>
-        <div class="profile_row">
-            <p>Ссылки на проекты:&nbsp;<br/><span>{{ user_info.project_links }}</span></p>
-        </div>
-        <div class="profile_row">
-            <p>Навыки:&nbsp;<br/><span>{{ user_info.skills }}</span></p>
-        </div>
-        <div class="profile_row">
-            <a href="{% url 'portfolio:edit' user.username %}" class="my_button">РЕДАКТИРОВАТЬ
-                ПРОФИЛЬ</a>
-        </div>
-        <div class="profile_row">
-            <a href="{% url 'portfolio:user_page' user.username %}" class="my_button light_blue">МОЕ ПОРТФОЛИО</a>
-        </div>
+        <nav class="profile_nav">
+            <div class="profile_row">
+                <a href="{% url 'portfolio:edit' user.username %}" class="my_button">РЕДАКТИРОВАТЬ</a>
+            </div>
+            <div class="profile_row">
+                <a href="{% url 'portfolio:user_page' user.username %}" class="my_button light_blue">МОЕ ПОРТФОЛИО</a>
+            </div>
+        </nav>
     </div>
 </div>
 
