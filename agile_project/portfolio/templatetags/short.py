@@ -4,4 +4,4 @@ register = template.Library()
 
 @register.filter
 def shorter(value):
-    return 'Password2'
+    return 'Password'

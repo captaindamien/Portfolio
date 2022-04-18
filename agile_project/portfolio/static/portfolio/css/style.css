@@ -3,6 +3,10 @@
     padding: 0;
     font-family: "Roboto Light", sans-serif;
 }
+.wrap_content {
+    max-width: 1024px;
+    margin: 0 auto;
+}
 
 header {
     background-color: #253247;
@@ -22,7 +26,6 @@ header {
 }
 
 .person {
-    width: 200px;
     color: white;
     height: 128px;
     display: flex;
@@ -62,6 +65,8 @@ header img {
 
 .header_username, .exit {
     text-decoration: none;
+    padding: 5px 7px;
+    box-sizing: border-box;
 }
 
 .header_username:hover {
@@ -244,7 +249,6 @@ form {
     }
 
     .person {
-        width: 128px;
         display: flex;
         flex-direction: column;
         height: auto;
@@ -347,30 +351,29 @@ form {
 }
 
 
-.form_radio_group-item input[type=radio]:checked + label {
-    border: 2px solid #d75946;
-}
 #radio_2 {
     display: none;
 }
 #next, #before {
     position: absolute;
     top:20vh;
-    height: 64px;
+    height: 100px;
     width: 30px;
-    background: #d75946;
-    border: 1px solid #d36251;
+    background: #ecd140;
+    border: 0;
     opacity: 0.8;
+    color:white;
+    font-size: 2em;
 }
 #next {
     right:0;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
 }
 #before {
     left: 0;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
     display: none;
 }
 
