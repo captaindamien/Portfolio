@@ -358,7 +358,7 @@ form {
 
 /* Not Checked */
 .form_radio_group-item input#radio-1[type=radio] + label {
-    background: url("/media/templates_img/example.png") 0 0 no-repeat;
+    background: url("/media/templates_img/example1.png") 0 0 no-repeat;
     background-size:auto 50vh;
     background-position: center;
 }
@@ -369,9 +369,15 @@ form {
     background-size: auto 50vh;
     background-position: center;
 }
+/* Not Checked */
+.form_radio_group-item input#radio-3[type=radio] + label {
+    background: url("/media/templates_img/example3.png") 0 0 no-repeat;
+    background-size: auto 50vh;
+    background-position: center;
+}
 
 
-#radio_2 {
+#radio_2, #radio_3 {
     display: none;
 }
 #next, #before {
