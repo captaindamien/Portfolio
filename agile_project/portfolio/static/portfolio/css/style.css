@@ -180,8 +180,26 @@ select {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
-    padding: 13px 7px;
+    padding: 17px 13px;
     box-sizing: border-box;
+}
+.item ul {
+    padding-left: 10px;
+}
+.item p, h3, li {
+    color: white;
+}
+.item p, li {
+    font-size: 1.2em;
+}
+.item li {
+    list-style-type: none;
+    padding: 10px 0 5px;
+}
+.item p.body_text {
+    margin: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .item:nth-child(odd) {
@@ -193,8 +211,7 @@ select {
 }
 
 .item img {
-    height: 100px;
-    width: 220px;
+    width: 150px;
     border: 1px solid #ddd;
     background-color: white;
     border-radius: 5px;
