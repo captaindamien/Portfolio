@@ -1,12 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
 
 
 def user_directory_path(instance, filename):
     return 'user_avatars/user_{0}/{1}'.format(instance.username.id, filename)
-
-CHOICES = [('1','1'),('2','2'),('3','3')]
 
 
 class Portfolio(models.Model):
@@ -16,8 +13,14 @@ class Portfolio(models.Model):
     )
     career = models.CharField(
         verbose_name='Род деятельности',
-        max_length=100,
-        blank=True,
+        blank=False,
+        max_length=1,
+        choices=[
+            ('1', 'Программист'),
+            ('2', 'Дизайнер'),
+            ('3', 'Специалист'),
+        ],
+        default=0,
     )
     photo = models.ImageField(
         verbose_name='Фото',
@@ -61,7 +64,11 @@ class Portfolio(models.Model):
         blank=False,
         max_length=1,
         verbose_name='Выбор шаблона',
-        choices=CHOICES,
+        choices=[
+            ('1', '1'),
+            ('2', '2'),
+            ('3', '3'),
+        ],
         default=0,
     )
 

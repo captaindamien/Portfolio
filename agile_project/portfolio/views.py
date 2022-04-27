@@ -1,16 +1,15 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
-from django.shortcuts import get_list_or_404, get_object_or_404
+from django.shortcuts import get_object_or_404
 
 import os
 
 from .models import Portfolio
 from agile_project.settings import MEDIA_URL
 from agile_project.forms import PortfolioForm
+
 
 def get_person_logo(request):
     user = request.user
@@ -23,24 +22,24 @@ def get_person_logo(request):
     if request.user.is_staff:
         return os.path.join(MEDIA_URL, 'admin_logo.jpg')
 
+
 def index(request):
-    context = {}
-    context['avatar'] = get_person_logo(request)
-    context['logo'] = os.path.join(MEDIA_URL, "logo.png")
+    context = {
+        'avatar': get_person_logo(request),
+        'logo': os.path.join(MEDIA_URL, "logo.png")
+    }
 
     return render(request, 'portfolio/index.html', context=context)
 
 
 @login_required
 def profile(request, username):
-    context = {}
     user = request.user
-    context['avatar'] = get_person_logo(request)
-    
+    context = {'avatar': get_person_logo(request)}
+
     # если находит портфолио для юзера
     try:
         user_info = Portfolio.objects.get(username=user)
-
         context['user_info'] = user_info
         return render(request, 'portfolio/profile.html', context)
     # # если портфолио нет, переходим к созданию/редактированию
@@ -50,8 +49,7 @@ def profile(request, username):
 
 @login_required()
 def edit(request, username):
-    context = {}
-    context['avatar'] = get_person_logo(request)
+    context = {'avatar': get_person_logo(request)}
     user = request.user
     portfolio = Portfolio.objects.get(username=user)
 
@@ -59,7 +57,6 @@ def edit(request, username):
         # передача данных из формы в модель
         form = PortfolioForm(request.POST, request.FILES, instance=portfolio)
         if form.is_valid():
-
             form.save()
             return profile(request, username)
     else:
@@ -68,6 +65,7 @@ def edit(request, username):
     context['form'] = form
     context['portfolio'] = portfolio
     return render(request, 'portfolio/edit.html', context=context)
+
 
 def user_page(request, username):
     context = {}
@@ -80,9 +78,9 @@ def user_page(request, username):
     context['skills'] = user_info.skills.split(',')
     return render(request, f'portfolio/user_pages/user_page_{user_info.template}.html', context=context)
 
+
 def registration(request):
-    context = {}
-    context['logo'] = os.path.join(MEDIA_URL, "logo.png")
+    context = {'logo': os.path.join(MEDIA_URL, "logo.png")}
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
