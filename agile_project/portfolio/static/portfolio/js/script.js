@@ -37,6 +37,10 @@ next.onclick = function () {
         next.style.display = 'none';
         before.style.display = 'block'
     }
+    if (cnt == 1) {
+        next.style.display = 'block';
+        before.style.display = 'block'
+    }
 
 }
 
@@ -57,6 +61,10 @@ before.onclick = function () {
     if (cnt == 0) {
         next.style.display = 'block';
         before.style.display = 'none'
+    }
+    if (cnt == 1) {
+        next.style.display = 'block';
+        before.style.display = 'block'
     }
 
 }

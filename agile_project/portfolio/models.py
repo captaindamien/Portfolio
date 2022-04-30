@@ -14,11 +14,11 @@ class Portfolio(models.Model):
     career = models.CharField(
         verbose_name='Род деятельности',
         blank=False,
-        max_length=1,
+        max_length=64,
         choices=[
-            ('1', 'Программист'),
-            ('2', 'Дизайнер'),
-            ('3', 'Специалист'),
+            ('Программист', 'Программист'),
+            ('Дизайнер', 'Дизайнер'),
+            ('Специалист', 'Специалист'),
         ],
         default=0,
     )
@@ -53,7 +53,14 @@ class Portfolio(models.Model):
     experience = models.CharField(
         verbose_name='Опыт работы',
         max_length=100,
-        blank=True,
+        blank=False,
+        choices=[
+            ('Нет опыта', 'Нет опыта'),
+            ('От 1 года до 3 лет', 'От 1 года до 3 лет'),
+            ('От 3 до 6 лет ', 'От 3 до 6 лет '),
+            ('Более 6 лет', 'Более 6 лет'),
+        ],
+        default=0,
     )
     skills = models.TextField(
         verbose_name='Навыки',

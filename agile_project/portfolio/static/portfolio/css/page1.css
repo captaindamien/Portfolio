@@ -54,7 +54,7 @@ nav a:active {
     padding: 50px 0;
     box-sizing: border-box;
     text-align: center;
-    margin-top: 47px;
+    min-height: 50vh;
 }
 
 .content:nth-child(even) {
@@ -73,7 +73,8 @@ nav a:active {
     color: #070707;
     font-size: 25px;
     font-variant: all-petite-caps;
-    margin-bottom: 27px;
+    padding-bottom: 47px;
+    box-sizing: border-box;
 }
 
 .flex-b {

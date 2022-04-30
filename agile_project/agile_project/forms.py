@@ -20,7 +20,10 @@ class PortfolioForm(forms.ModelForm):
         )
         widgets = {
                     'template': forms.RadioSelect,
+                    'career': forms.Select,
+                    'experience': forms.Select
                 }
+
     
     def __init__(self, *args, **kwargs):
         super(PortfolioForm, self).__init__(*args, **kwargs)
