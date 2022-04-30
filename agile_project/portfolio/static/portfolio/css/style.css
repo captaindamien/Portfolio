@@ -52,14 +52,17 @@ header {
 header img {
     width: 128px;
 }
-
+.wh-64 {
+    width: 64px;
+    height: 64px;
+    display: flex;
+}
 .person img {
     margin: 0 auto;
-    height: 64px;
-    width: 64px;
+    object-fit: cover;
+    overflow: hidden;
     border-radius: 50%;
     border: 1px solid white;
-    margin: 0;
     padding: 0;
 }
 
@@ -74,7 +77,6 @@ header img {
 }
 
 .profile_avatarka {
-    width: 110px;
     height: 110px;
     margin: 0 15px 0 0;
 }
@@ -281,6 +283,9 @@ form {
         flex-direction: column;
         height: auto;
     }
+    .person img {
+        overflow: hidden;
+    }
 
     .reg {
         flex-direction: column;
@@ -423,4 +428,15 @@ form {
 
 #div_id_template {
     display: none;
+}
+
+#div_id_photo>div>:not(#id_photo) {
+    display: none;
+    visibility: hidden;
+}
+#div_id_photo>div {
+    color: #fff;
+}
+#id_photo {
+    color: black;
 }

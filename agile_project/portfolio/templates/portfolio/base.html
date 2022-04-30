@@ -17,7 +17,7 @@
     </a>
     {% if user.is_authenticated %}
     <div class="person">
-        <img src="{{ avatar }}" alt="person logo"/>
+        <a class="header_username wh-64" href="{% url 'portfolio:profile' user.username%}"><img src="{{ avatar }}" alt="person logo"/></a>
         <a class="header_username" href="{% url 'portfolio:profile' user.username%}"><h5>{{ user.username }}</h5>
         </a>
         <a class="exit" href="{% url 'logout' %}">Выход</a>
