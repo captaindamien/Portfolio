@@ -9,5 +9,5 @@ urlpatterns = [
     path('profile/<str:username>/', profile, name="profile"),
     path('profile/<str:username>/edit/', edit, name='edit'),
     path('<str:username>/', user_page, name='user_page'),
-    path('registration/', registration, name='registration')
+    path('accounts/registration/', registration, name='registration')
 ]

@@ -9,6 +9,7 @@ import os
 from .models import Portfolio
 from agile_project.settings import MEDIA_URL
 from agile_project.forms import PortfolioForm
+from django.contrib.auth.models import User
 
 
 def get_person_logo(request):
@@ -69,19 +70,21 @@ def edit(request, username):
 
 def user_page(request, username):
     context = {}
-    user = request.user
+    
+    user = User.objects.get(username=username)
     user_info = Portfolio.objects.get(username=user)
+
     context['user'] = user
     context['avatar'] = get_person_logo(request)
     context['portfolio'] = user_info
     context['links'] = user_info.project_links.split(',')
     context['skills'] = user_info.skills.split(',')
+
     return render(request, f'portfolio/user_pages/user_page_{user_info.template}.html', context=context)
 
 
 def registration(request):
     context = {'logo': os.path.join(MEDIA_URL, "logo.png")}
-
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
 
@@ -90,6 +93,9 @@ def registration(request):
             # автоматическая авторизация пользователя
             new_user = authenticate(
                 username=form.cleaned_data['username'],
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name'],
+                email=form.cleaned_data['email'],
                 password=form.cleaned_data['password1'],
             )
 
@@ -103,6 +109,7 @@ def registration(request):
             return profile(request, request.user)
     else:
         form = UserCreationForm()
+        print(form)
 
     context['form'] = form
     return render(request, 'registration/registration.html', context=context)
