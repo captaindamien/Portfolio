@@ -93,9 +93,6 @@ def registration(request):
             # автоматическая авторизация пользователя
             new_user = authenticate(
                 username=form.cleaned_data['username'],
-                first_name=form.cleaned_data['first_name'],
-                last_name=form.cleaned_data['last_name'],
-                email=form.cleaned_data['email'],
                 password=form.cleaned_data['password1'],
             )
 
