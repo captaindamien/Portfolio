@@ -78,7 +78,10 @@ header img {
 
 .profile_avatarka {
     height: 110px;
-    margin: 0 15px 0 0;
+    object-fit: cover;
+    overflow: hidden;
+    padding: 0;
+    width: 110px;
 }
 
 .profile_row {
@@ -96,6 +99,8 @@ header img {
 
 .profile_contacts {
     text-align: left;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
 .profile_contacts h3 {

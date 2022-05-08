@@ -97,6 +97,9 @@ nav a:active {
         flex-direction: column;
         align-items: center;
     }
+    .header_logo img {
+        width: 100%;
+    }
 
     .flex-b {
         display: flex;

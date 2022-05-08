@@ -37,6 +37,7 @@ header h2 {
     border-radius: 50%;
     border: 2px solid white;
     width: 140px;
+    height: 140px;
     position: absolute;
     bottom:-75px;
     margin-left: auto;
