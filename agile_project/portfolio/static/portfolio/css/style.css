@@ -445,3 +445,20 @@ form {
 #id_photo {
     color: black;
 }
+.feedback_form {
+
+}
+.feedback {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;;
+}
+.login1 {
+    margin: 0 auto;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

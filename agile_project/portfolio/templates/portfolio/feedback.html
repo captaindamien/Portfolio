@@ -1,0 +1,20 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}profile{% endblock title %}
+{% block feedback %}
+
+{% endblock feedback %}
+{% block content %}
+<div class="feedback_form">
+    <form action="" method="POST" enctype="multipart/form-data" class="form_edit_profile">
+        {% csrf_token %}
+        {{feed_back|crispy }}
+        <button class="my_button light_green" type="submit">ОТПРАВИТЬ</button>
+
+    </form>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{% static 'portfolio/js/script.js' %}"></script>
+{% endblock script%}

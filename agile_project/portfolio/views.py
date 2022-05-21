@@ -6,9 +6,9 @@ from django.shortcuts import get_object_or_404
 
 import os
 
-from .models import Portfolio
+from .models import Portfolio, Feedback
 from agile_project.settings import MEDIA_URL
-from agile_project.forms import PortfolioForm
+from agile_project.forms import PortfolioForm, FeedbackForm
 from django.contrib.auth.models import User
 
 
@@ -22,6 +22,24 @@ def get_person_logo(request):
             return os.path.join(MEDIA_URL, 'default_person_logo.png')
     if request.user.is_staff:
         return os.path.join(MEDIA_URL, 'admin_logo.jpg')
+
+
+def feedback(request):
+    form = FeedbackForm(request.POST, request.FILES)
+    context = {}
+    context = {
+            'avatar': get_person_logo(request),
+            'logo': os.path.join(MEDIA_URL, "logo.png")
+        }
+    if request.method == 'POST':
+        # передача данных из формы в модель
+        if form.is_valid():
+            form.save()
+            return render(request, 'portfolio/index.html', context=context)
+        else:
+            form = PortfolioForm(instance=portfolio)
+    context['feed_back'] = form
+    return render(request, 'portfolio/feedback.html', context=context)
 
 
 def index(request):

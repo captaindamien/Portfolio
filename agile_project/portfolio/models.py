@@ -5,6 +5,14 @@ from django.contrib.auth.models import User
 def user_directory_path(instance, filename):
     return 'user_avatars/user_{0}/{1}'.format(instance.username.id, filename)
 
+class Feedback(models.Model):
+    id = models.IntegerField(primary_key=True)
+    text = models.TextField(blank=True, verbose_name="Обратная связь")
+    is_readed = models.BooleanField(default=False, verbose_name="Прочитано")
+
+    def __str__(self):
+
+        return f'отзыв_{self.id}'
 
 class Portfolio(models.Model):
     username = models.ForeignKey(
@@ -20,7 +28,7 @@ class Portfolio(models.Model):
             ('Дизайнер', 'Дизайнер'),
             ('Специалист', 'Специалист'),
         ],
-        default=0,
+        default="Специалист",
     )
     photo = models.ImageField(
         verbose_name='Фото',
@@ -60,7 +68,7 @@ class Portfolio(models.Model):
             ('От 3 до 6 лет ', 'От 3 до 6 лет '),
             ('Более 6 лет', 'Более 6 лет'),
         ],
-        default=0,
+        default="Нет опыта",
     )
     skills = models.TextField(
         verbose_name='Навыки',
@@ -76,7 +84,7 @@ class Portfolio(models.Model):
             ('2', '2'),
             ('3', '3'),
         ],
-        default=0,
+        default=1,
     )
 
     def __str__(self):
